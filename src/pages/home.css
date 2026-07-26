@@ -1,0 +1,112 @@
+.blueprint {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 20px 40px;
+  color: #ffffff;
+  background-color: #16309c;
+  background-image:
+    /* fine grid */
+    linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    /* heavy grid every 5 squares */
+    linear-gradient(rgba(255, 255, 255, 0.25) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.25) 1.5px, transparent 1.5px);
+  background-size:
+    20px 20px,
+    20px 20px,
+    100px 100px,
+    100px 100px;
+}
+
+.blueprint h1 {
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  letter-spacing: 0.35em;
+  text-align: center;
+  font-weight: 400;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+.blueprint-button {
+  font-family: inherit;
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  padding: 14px 36px;
+  color: #ffffff;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.blueprint-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.blueprint-button:active {
+  transform: scale(0.97);
+}
+
+/* ---- Dice ---- */
+
+.dice-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.die {
+  width: 80px;
+  height: 80px;
+  border: 2.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.die:active {
+  transform: scale(0.93);
+}
+
+.die.rolling {
+  animation: shake 0.4s infinite;
+}
+
+@keyframes shake {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(-8deg); }
+  75%  { transform: rotate(8deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.pip {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  align-self: center;
+  justify-self: center;
+}
+
+/* pip placement per face value */
+.pip:nth-child(1) { grid-area: 1 / 1; }
+.pip:nth-child(2) { grid-area: 1 / 3; }
+.pip:nth-child(3) { grid-area: 2 / 2; }
+.pip:nth-child(4) { grid-area: 3 / 1; }
+.pip:nth-child(5) { grid-area: 3 / 3; }
+.pip:nth-child(6) { grid-area: 2 / 1; }
+.pip:nth-child(7) { grid-area: 2 / 3; }
+
+.dice-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  opacity: 0.8;
+}
