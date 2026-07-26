@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import "./Home.css";
+import "./home.css";
 
 // which pips light up for each value (order matches the CSS grid-areas)
 const PIP_LAYOUTS = {
